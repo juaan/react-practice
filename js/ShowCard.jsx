@@ -20,16 +20,17 @@ width: 46%;
 float: left;
 margin-right: 10px;
 `;
-class ShowCard extends React.Component {
-    shouldComponentUpdate() {
-        return false
-    }
 
+
+
+
+class ShowCard extends React.Component {
     props: Show;
     render() {
         return (
-            <Wrapper to={`/details/${this.props.imdbID}`}>
+            <Wrapper className="show-card" to={`/details/${this.props.imdbID}`}>
                 <Image alt={`${this.props.title} Show Poster`} src={`/public/img/posters/${this.props.poster}`} />
+
                 <div>
                     <h3>{this.props.title}</h3>
                     <h4>({this.props.year})</h4>

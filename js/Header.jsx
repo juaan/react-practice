@@ -2,8 +2,10 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { setSearchTerm } from './actionCreators';
 
-const Header = (props: { showSearch?: boolean, handleSearch?: Function, searchTerm?: string }) => {
+const Header = (props: { showSearch?: boolean, handleSearch: Function, searchTerm: string }) => {
     return (
         <header>
             <h1><Link to="/">JuanVids</Link></h1>
@@ -15,9 +17,17 @@ const Header = (props: { showSearch?: boolean, handleSearch?: Function, searchTe
 };
 
 Header.defaultProps = {
-    showSearch: false,
-    handleSearch: function noop() {},
-    searchTerm: ''
+    showSearch: false
 };
 
-export default Header;
+const mapStateToProps = state => ({
+    searchTerm : state.searchTerm
+})
+
+const mapDispatchToProps = (dispatch: Function) => ({
+    handleSearch(e) {
+        dispatch(setSearchTerm(e.target.value))
+    }
+})
+
+export default connect(mapStateToProps,mapDispatchToProps)(Header);

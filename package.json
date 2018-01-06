@@ -8,11 +8,13 @@
     "test:update": "jest -u"
   },
   "jest": {
-    "snapshotSerializers" : ["jest-serializer-enzyme"]
+    "snapshotSerializers": [
+      "jest-serializer-enzyme"
+    ]
   },
   "prettier": {
     "parser": "babylon",
-		"singleQuote": true,
+    "singleQuote": true,
     "printWidth": 120,
     "tabWidth": 4,
     "bracketSpacing": true
@@ -26,6 +28,7 @@
     "cors": "2.8.3",
     "express": "4.15.3",
     "lodash": "4.17.4",
+    "morgan": "^1.9.0",
     "preact": "8.1.0",
     "preact-compat": "3.16.0",
     "prop-types": "15.5.10",
